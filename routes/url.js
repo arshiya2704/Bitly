@@ -7,13 +7,13 @@ var API =require('../API/api');
 
 router.post('/', function(req, resp, next) {
     var url = req.param("url");
-
+    
     if(url == ""){
         console.log("Hey I am null");
         alert("Please enter a url");
         //alert("Empty url");
     }
-
+    
     
     else{
             if(url.match("ppiper.hopto.org/\*")){
