@@ -12,16 +12,35 @@ router.post('/', function(req, resp, next) {
         .then((res) => {
         if (res.status === 200) {
             res.json().then(data => {
-                ejs.renderFile("./views/index.ejs",{"url":url,"shortUrl":data.message},function (err,result) {
-                    if(!err){
-                        resp.end(result);
+                console.log("data is: "+data.message);
+
+                API.findTrending()
+                .then((result) => {
+                    if (result.status === 200) {
+                        result.json().then(trend => {
+                          console.log(trend);
+                            ejs.renderFile("./views/index.ejs",{"url":url,"shortUrl":data.message,"trenddata":trend},function (err,result) {
+                                if(!err){
+                                    resp.end(result);
+                                }
+                            })
+                        });
                     }
-                })
+                    ;
+                });
+
+
+
+                // ejs.renderFile("./views/index.ejs",{"url":url,"shortUrl":data.message},function (err,result) {
+                //     if(!err){
+                //         resp.end(result);
+                //     }
+                // })
 
 
             });
         }
-        });
+    });
 
 
 

@@ -1,4 +1,4 @@
-const shorturlapi = 'http://bitlylb-638645599.us-west-1.elb.amazonaws.com:80';
+const shorturlapi = 'http://bitlylb-638645599.us-west-1.elb.amazonaws.com';
 const trendapi = "http://bitly-trend-359192198.us-west-1.elb.amazonaws.com:3000";
 var fetch = require('node-fetch');
 const headers = {
@@ -14,6 +14,7 @@ fetch(`${shorturlapi}/encodeUrl`, {
     },
     body: JSON.stringify(payload)
 }).then(res => {
+    console.log(res.status);
     return res;
 })
     .catch(error => {
