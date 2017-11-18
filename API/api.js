@@ -1,3 +1,4 @@
+
 const shorturlapi = 'http://bitlylb-638645599.us-west-1.elb.amazonaws.com';
 const trendapi = "http://bitly-trend-359192198.us-west-1.elb.amazonaws.com:3000";
 var fetch = require('node-fetch');
