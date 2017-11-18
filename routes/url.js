@@ -10,8 +10,23 @@ router.post('/', function(req, resp, next) {
     
     if(url == ""){
         console.log("Hey I am null");
-        alert("Please enter a url");
+        //alert("Please enter a url");
         //alert("Empty url");
+        API.findTrending()
+            .then((result) => {
+                if (result.status === 200) {
+                    result.json().then(trend => {
+                        console.log(trend);
+                        ejs.renderFile("./views/index.ejs",{"url":url,"errormsg":"Enter a url","trenddata":trend},function (err,result) {
+                            if(!err){
+                                resp.end(result);
+                            }
+                        })
+                    });
+                }
+
+            });
+
     }
     
     
@@ -23,7 +38,7 @@ router.post('/', function(req, resp, next) {
                     if (result.status === 200) {
                         result.json().then(trend => {
                             console.log(trend);
-                            ejs.renderFile("./views/index.ejs",{"url":url,"trenddata":trend},function (err,result) {
+                            ejs.renderFile("./views/index.ejs",{"url":url,"errormsg":"It's already a ppiper link","trenddata":trend},function (err,result) {
                                 if(!err){
                                     resp.end(result);
                                 }
@@ -33,7 +48,7 @@ router.post('/', function(req, resp, next) {
                     ;
                 });
                 
-                alert("It's already a ppiper link");
+                //alert("It's already a ppiper link");
             }
             else{
                 API.shortUrl({"url":url})

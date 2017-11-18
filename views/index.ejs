@@ -19,6 +19,7 @@
       var shortUrl = shortUrl;
       var url =url;
       var trenddata=trenddata;
+      var errormsg =errormsg;
     %>
 
     <button hidden="true" id="watchbutton"></button>
@@ -35,6 +36,9 @@
         <form action="short" method="post">
           <textarea name="url" rows="2" cols="70"><%= url %></textarea>
           <button style="color: chocolate" type="submit">Submit</button><br><br>
+            <% if(errormsg){%>
+          <p style="color: red"><%= errormsg %></p>
+          <% } %>
           <%if(shortUrl){%>
           <textarea rows="2" cols="80" disabled>ppiper.hopto.org/<%= shortUrl %></textarea>
           <%}%>
