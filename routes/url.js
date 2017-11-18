@@ -12,16 +12,19 @@ router.post('/', function(req, resp, next) {
         .then((res) => {
         if (res.status === 200) {
             res.json().then(data => {
-                console.log(data.message);
                 ejs.renderFile("./views/index.ejs",{"url":url,"shortUrl":data.message},function (err,result) {
                     if(!err){
                         resp.end(result);
                     }
                 })
 
+
             });
         }
         });
+
+
+
     //resp.redirect('/');
 });
 

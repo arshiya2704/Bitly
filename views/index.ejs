@@ -7,43 +7,61 @@
           href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.min.css">
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/js/bootstrap.min.js"></script>
+
+
   </head>
+
+
+
   <body>
-    <script>
-      function onClickSubmit() {
-          console.log("arshudiii");
-      }
-    </script>
 
     <%
-      var shortUrl = shortUrl;
+      var shortUrl = "ppiper.hopto.org/"+ shortUrl;
       var url =url;
+      var trenddata=trenddata;
     %>
-  <div style="background-color: black" >
-  <img class="img-responsive" src="bitly.png" width="200">
-    <center>
-    <h1 style="color: chocolate">Welcome to Bitly</h1>
-    <p style="color: chocolate">Paste your long URL to shorten it</p>
-      <form action="short" method="post">
-    <textarea name="url" rows="2" cols="70"><%= url %></textarea>
-      <button style="color: chocolate" type="submit">Submit</button><br><br>
-      <textarea rows="2" cols="80" disabled><%= shortUrl %></textarea>
+
+    <button hidden="true" id="watchbutton"></button>
+  <div class="col-md-12" style="background-color: black">
+      <div class="col-md-3" >
         <br>
-        <br>
-        <br>
-        <br>
-        <br>
-        <br>
-        <br>
-        <br>
-        <br>
-        <br>
-        <br>
-        <br>
+        <img class="img-responsive" src="bitly.png" width="200">
+        <br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br>
+      </div>
+      <div class="col-md-6" >
+        <br><br><br><br><br><br><br><br><br><br>
+        <h1 style="color: chocolate">Welcome to Bitly</h1>
+        <p style="color: chocolate">Paste your long URL to shorten it</p>
+        <form action="short" method="post">
+          <textarea name="url" rows="2" cols="70"><%= url %></textarea>
+          <button style="color: chocolate" type="submit">Submit</button><br><br>
+          <textarea rows="2" cols="80" disabled><%= shortUrl %></textarea>
+        </form>
         <br><br><br><br><br><br><br><br>
-      </form>
-    </center>
-    </div>
+      </div>
+      <div class="col-md-3" style="background: rgba(152, 146, 146, 0.19); ">
+        <nav class="navbar navbar-custom" style="width: 80px">
+          <br/><br/><br/>
+
+          <br><br>
+          <div id="list"><ul></ul></div>
+
+          <% trenddata.forEach(function(item) {%>
+          <ul><a href= <%=item.longUrl%> > <li><%=item.longUrl%></li> </a> </ul>
+          <% })%>
+          <!--<a href="https://www.google.com">www.google.com</a><br><br>-->
+          <!--<a href="https://www.instagram.com">www.instagram.com</a><br><br>-->
+          <!--<a href="https://www.facebook.com">www.facebook.com</a><br><br>-->
+          <!--<a href="https://www.youtube.com">www.youtube.com</a><br><br>-->
+          <!--<a href="https://www.quora.com">www.quora.com</a>-->
+          <br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br>
+        </nav>
+      </div>
+  </div>
   </body>
+  <script>
+
+
+  </script>
 </html>
 
