@@ -37,8 +37,9 @@
           <textarea name="url" rows="2" cols="70"><%= url %></textarea>
           <button style="color: chocolate" type="submit">Submit</button><br><br>
             <% if(errormsg){%>
-          <p style="color: red"><%= errormsg %></p>
-          <% } %>
+              <img class="img-responsive" src="error.png" width="30">
+              <p style="color: red"><%= errormsg %></p>
+             <% } %>
           <%if(shortUrl){%>
           <textarea rows="2" cols="80" disabled>ppiper.hopto.org/<%= shortUrl %></textarea>
           <%}%>
