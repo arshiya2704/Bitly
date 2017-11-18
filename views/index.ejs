@@ -26,13 +26,13 @@
   <div class="col-md-12" style="background-color: black">
       <div class="col-md-3" >
         <br>
-        <img class="img-responsive" src="bitly.png" width="200">
+        <img class="img-responsive" src="https://getpiper.com/wp-content/uploads/2015/10/Piper-Logo.png" width="300">
         <br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br>
       </div>
       <div class="col-md-6" >
-        <br><br><br><br><br><br><br><br><br><br>
-        <h1 style="color: chocolate">Welcome to Bitly</h1>
-        <p style="color: chocolate">Paste your long URL to shorten it</p>
+          <br><br><br><br><br><br><br><br><br><br><br>
+        <h1 style="color: red">Welcome to Ppiper</h1>
+        <p style="color: red">Paste your long URL to shorten it</p>
         <form action="short" method="post">
           <textarea name="url" rows="2" cols="70"><%= url %></textarea>
           <button style="color: chocolate" type="submit">Submit</button><br><br>
@@ -53,7 +53,7 @@
           <div id="list"><ul></ul></div>
           <% if(trenddata){ %>
           <% trenddata.forEach(function(item) {%>
-            <ul><a href= <%=item.longUrl%> > <li><%=item.longUrl%></li> </a> </ul>
+            <ul><a href= <%=item.longUrl%> > <li><%=item.longUrl%> | <%= item.count %></li> </a> </ul>
           <% })%>
           <% }%>
           <!--<a href="https://www.google.com">www.google.com</a><br><br>-->
